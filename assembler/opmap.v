@@ -5,7 +5,6 @@ import util
 const opmap_raw = $embed_file("opmap")
 
 fn prep_opmap() ?map[string]u8 {
-	println("preparing opmap...")
 	mut opmap := map[string]u8{}
 	for ln in opmap_raw.to_string().split_into_lines() {
 		ln_sane := util.sanitize_line(ln)

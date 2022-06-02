@@ -25,7 +25,6 @@ pub fn assemble(mut src io.Reader, mut out io.Writer) ? {
 
 	mut instr_count := 0
 
-	println("assembling...")
 	for {
 		word := get_word(mut &src) or { break }
 		opword := word.to_upper()
