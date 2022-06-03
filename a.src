@@ -1,3 +1,4 @@
-PushB 10
-PushB 0xA
-Add Drop
+TEXT hi 0x1234 "Hello, world!"
+
+PUSHP 'hi
+DROP

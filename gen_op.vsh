@@ -54,9 +54,9 @@ defer { f.close() }
 
 t := time.now().custom_format("Do MMM YYYY HH:mm:ss (Z)")
 write(mut f, "// Generated with gen_op.vsh on $t\n")
-write(mut f, "module assembler\nconst opmap := map[string]u8{\n")
+write(mut f, "module assembler\nconst opmap = {\n")
 for op, code in opmap {
-	write(mut f, "\t\"$op\": $code,\n")
+	write(mut f, "\t\"$op\": u8($code),\n")
 }
 write(mut f, "}\n")
 

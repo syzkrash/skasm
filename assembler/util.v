@@ -16,6 +16,13 @@ fn u32bytes(n u32) []u8 {
 	]
 }
 
+fn to_num(s string, bits int) ?u64 {
+	if s.starts_with("0x") {
+		return s.trim_string_left("0x").parse_uint(16, bits)
+	}
+	return s.parse_uint(10, bits)
+}
+
 struct AssemblerError {
 	Error
 	message string

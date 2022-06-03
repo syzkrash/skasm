@@ -19,6 +19,16 @@ fn main() {
 		or { util.on_err(err, "couldn't create binary file") }
 
 	println("assembling $filename to $outname"+"...")
-	assembler.assemble(mut src, mut out)
-		or { util.on_err(err, "couldn't assemble")}
+	mut ctx := assembler.AssemblyContext{src: src, out: out}
+	for {
+		cont := ctx.next() or { util.on_err(err, "couldn't assemble") }
+		if !cont {
+			break
+		}
+	}
+	ctx.finish() or { util.on_err(err, "couldn't assemble") }
+
+	println("assembly stats:")
+	println("\t$ctx.instrs instructions")
+	println("\t$ctx.data.len data pieces")
 }
