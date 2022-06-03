@@ -10,9 +10,4 @@ vls.log
 *.def
 
 # Assember inputs & outputs
-*.src
 *.bin
-
-# opmap, fetch it yourself:
-# curl -o assembler/opmap https://raw.githubusercontent.com/syzkrash/skvm/nightly/opmap
-assembler/opmap

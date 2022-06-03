@@ -2,3 +2,5 @@
 *.vv linguist-language=V text=auto eol=lf
 *.vsh linguist-language=V text=auto eol=lf
 **/v.mod linguist-language=V text=auto eol=lf
+assembler/opmap.v linguist-generated
+*.src linguist-language=Rust -linguist-detectable
