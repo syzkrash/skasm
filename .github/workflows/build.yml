@@ -1,0 +1,25 @@
+name: V Build
+
+on:
+  push:
+    branches: [ "nightly" ]
+  pull_request:
+    branches: [ "nightly" ]
+
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: vlang/setup-v@v1
+        with:
+          check-latest: true
+          stable: true
+      
+      - name: Build
+        run: v .
+      
