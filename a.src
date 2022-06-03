@@ -1,4 +1,5 @@
-TEXT hi 0x1234 "Hello, world!"
+TEXT hi 0xFFFA "Hello, world!"
+DATA poo 0xFFFA [19 19 19 19 19 10 20 20 19 20 20 20 19]
 
 PUSHP 'hi
 DROP

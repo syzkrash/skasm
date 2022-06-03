@@ -31,3 +31,10 @@ struct AssemblerError {
 fn (e AssemblerError) msg() string {
 	return e.message
 }
+
+fn warning(lines ...string) {
+	println("\x1b[38;5;3mwarning\x1b[39m: ${lines[0]}")
+	for l in lines[1..] {
+		println("         $l")
+	}
+}

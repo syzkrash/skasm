@@ -141,6 +141,10 @@ fn (mut c AssemblyContext) data() ? {
 	c.out.write(u16bytes(u16(bytes.len)))?
 	c.out.write(u16bytes(addr))?
 	c.out.write(bytes)?
+
+	if int(addr) + bytes.len > 0xFFFF {
+		warning("byte array '$name is too large: $addr + $bytes.len > 65535")
+	}
 }
 
 fn (mut c AssemblyContext) text() ? {
@@ -151,6 +155,10 @@ fn (mut c AssemblyContext) text() ? {
 	c.out.write(u16bytes(u16(str.len)))?
 	c.out.write(u16bytes(addr))?
 	c.out.write(str)?
+
+	if int(addr) + str.len > 0xFFFF {
+		warning("string '$name is too large: $addr + $str.len > 65535")
+	}
 }
 
 fn (mut c AssemblyContext) instr(opword string) ? {
